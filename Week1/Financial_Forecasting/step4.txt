@@ -1,0 +1,26 @@
+Step 4: Analysis
+================
+
+Time Complexity:
+----------------
+- The recursive future value calculation calls itself once per year.
+- Therefore, the time complexity is O(n), where n is the number of years.
+- Each recursive call does a constant amount of work (multiplication and function call).
+
+Optimization:
+--------------
+- Although the recursion is straightforward and efficient for small n, it can cause stack overflow or slow performance for very large n due to deep recursion.
+- To avoid excessive computation and potential stack overflow, the recursive solution can be optimized by converting it into an iterative approach.
+- The iterative approach uses a simple loop to multiply the value by (1 + growthRate) repeatedly, avoiding recursive calls altogether.
+- Additionally, if the problem involved overlapping subproblems (not in this case), memoization could be used to cache intermediate results and reduce redundant calculations.
+- For this problem, the iterative approach is preferred for better performance and memory usage.
+
+Example of iterative optimization:
+
+public static double futureValueIterative(double currentValue, double growthRate, int years) {
+    double fv = currentValue;
+    for (int i = 0; i < years; i++) {
+        fv *= (1 + growthRate);
+    }
+    return fv;
+}
